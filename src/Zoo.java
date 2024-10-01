@@ -7,14 +7,14 @@ public class Zoo {
     public Animal[] animals;
     String name;
     String city;
-    int nbrAnimals;
+     int nbrAnimals;
 
 
     public Zoo(String name, String city) {
         this.name = name;
         this.city = city;
         this.animals = new Animal[25];
-        this.nbrAnimals = 0;
+        nbrAnimals = 0;
     }
 
     public Zoo () {
