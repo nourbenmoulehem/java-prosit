@@ -1,16 +1,17 @@
-package src;
-
-import src.Animal;
+package src.tn.esprit.gestionzoo.entities;
 
 public class Zoo {
     static final int NUMBER_CAGES = 25;
-    public Animal[] animals;
-    String name;
-    String city;
-     int nbrAnimals;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    int nbrAnimals;
 
 
     public Zoo(String name, String city) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Zoo name cannot be null or empty");
+        }
         this.name = name;
         this.city = city;
         this.animals = new Animal[25];
@@ -21,23 +22,38 @@ public class Zoo {
 
     }
 
-    public boolean addAnimal(Animal animal) {
-        if(searchAnimal(animal) == -1) {
-            // Animals doesn't exist and can be added
-            for(int i = 0; i < animals.length; i++) {
-                if(animals[i] == null) {
-                    animals[i] = animal;
-                    nbrAnimals++;
-                    return true;
-                }
-            }
-            System.out.println("Animals est saturee");
-            return false;
-        }  else {
-            System.out.println("Animal existe deja");
-            return false;
-        }
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        if(name == null) {
+            throw new IllegalArgumentException("Zoo Name must not be null");
+        }
+        this.name = name;
+    }
+
+    public boolean addAnimal(Animal animal) {
+        if(isZooFull()) {
+            System.out.println("Zoo is full");
+            return false;
+        } else {
+            if (searchAnimal(animal) == -1) {
+                // Animals doesn't exist and can be added
+                for (int i = 0; i < animals.length; i++) {
+                    if (animals[i] == null) {
+                        animals[i] = animal;
+                        nbrAnimals++;
+                        return true;
+                    }
+                }
+                System.out.println("Animals est saturee");
+                return false;
+            } else {
+                System.out.println("Animal existe deja");
+                return false;
+            }
+        }
 
     }
 
@@ -74,11 +90,11 @@ public class Zoo {
 
     }
 
-    boolean isZooFull() {
+    public boolean isZooFull() {
         return nbrAnimals == NUMBER_CAGES;
     }
 
-    static Zoo compareZoos(Zoo zoo1, Zoo zoo2) {
+    public static Zoo compareZoos(Zoo zoo1, Zoo zoo2) {
         if(zoo1.nbrAnimals > zoo2.nbrAnimals) {
             return zoo1;
         }

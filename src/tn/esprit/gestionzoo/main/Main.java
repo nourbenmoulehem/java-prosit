@@ -1,9 +1,10 @@
-package src;
+package src.tn.esprit.gestionzoo.main;
 
-import src.Animal;
-import src.Zoo;
 
-import static src.Zoo.compareZoos;
+import src.tn.esprit.gestionzoo.entities.Animal;
+import src.tn.esprit.gestionzoo.entities.Zoo;
+
+import static src.tn.esprit.gestionzoo.entities.Zoo.compareZoos;
 
 public class Main {
 
