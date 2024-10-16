@@ -9,5 +9,9 @@ public class Dolphin extends Aquatic{
         this.swimmingSpeed = swimmingSpeed;
     }
 
+    public void swim() {
+        System.out.println("This dolphin is swimming.");
+    }
+
 
 }

@@ -7,6 +7,16 @@ public class Zoo {
     private String city;
     int nbrAnimals;
 
+    public Aquatic[] getAquaticAnimals() {
+        return aquaticAnimals;
+    }
+
+    public void setAquaticAnimals(Aquatic[] aquaticAnimals) {
+        this.aquaticAnimals = aquaticAnimals;
+    }
+
+    Aquatic[] aquaticAnimals = new Aquatic[10];
+
 
     public Zoo(String name, String city) {
         if (name == null || name.isEmpty()) {
@@ -110,6 +120,15 @@ public class Zoo {
 //            }
 //        }
         return "Zoo: " + name + " in " + city + " has " + NUMBER_CAGES + " cages," + " and number of animals in total: " + nbrAnimals;
+    }
+
+
+    public void addAquaticAnimal(Aquatic aquatic) {
+        for (int i = 0; i < aquaticAnimals.length; i++) {
+            if (aquaticAnimals[i] == null) {
+                aquaticAnimals[i] = aquatic;
+            }
+        }
     }
 
 }

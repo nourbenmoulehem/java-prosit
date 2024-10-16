@@ -2,6 +2,7 @@ package src.tn.esprit.gestionzoo.main;
 
 
 import src.tn.esprit.gestionzoo.entities.Animal;
+import src.tn.esprit.gestionzoo.entities.Aquatic;
 import src.tn.esprit.gestionzoo.entities.Zoo;
 
 import static src.tn.esprit.gestionzoo.entities.Zoo.compareZoos;
@@ -18,6 +19,19 @@ public class Main {
         boolean isAdded2 = zoo.addAnimal(new Animal("3safer", "baba8ayou", 3, false));
 
         zoo.displayAnimals();
+
+        Aquatic aquatic1 = new Aquatic("Ocean", "Delphinidae", "Dolphin", 8, true);
+        Aquatic aquatic2 = new Aquatic("Sea", "Carcharhinidae", "Shark", 12, false);
+
+        zoo.addAnimal(aquatic1);
+        zoo.addAnimal(aquatic2);
+
+        for(Aquatic aquatic : zoo.getAquaticAnimals()) {
+            System.out.println("swim....");
+            System.out.println(aquatic.getAge());
+//            aquatic.swim();
+        }
+
         /*System.out.println(isAdded);
 
         System.out.println(zoo.toString());*/
