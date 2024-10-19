@@ -127,8 +127,48 @@ public class Zoo {
         for (int i = 0; i < aquaticAnimals.length; i++) {
             if (aquaticAnimals[i] == null) {
                 aquaticAnimals[i] = aquatic;
+                break;
             }
         }
     }
+
+    public float maxPenguinSwimmingDepth() {
+        float max = 0;
+         for(Aquatic p : this.aquaticAnimals) {
+            if (p != null) {
+                if(p instanceof Penguin) {
+                    if(((Penguin) p).swimmingDepth > max) {
+                        max = ((Penguin) p).swimmingDepth;
+                    }
+                }
+            }
+
+
+         }
+
+        return max;
+    }
+
+
+    public void displayNumberOfAquaticsByType() {
+        int nbrPenguins = 0;
+        int nbrDolphins = 0;
+        for(Aquatic a : this.aquaticAnimals) {
+            if (a != null) {
+                if(a instanceof Penguin) {
+                    nbrPenguins++;
+                }
+                if(a instanceof Dolphin) {
+                    nbrDolphins++;
+                }
+
+            }
+
+        }
+
+        System.out.println("Number of Penguins : " + nbrPenguins);
+        System.out.println("Number of Dolphins : " + nbrDolphins);
+    }
+
 
 }
